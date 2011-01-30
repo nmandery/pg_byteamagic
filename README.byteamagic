@@ -1,1 +1,40 @@
-todo: add documentation - obviously.
+PostgreSQL extension to determinate the filetypes of bytea BLOBs
+----------------------------------------------------------------
+
+This extensions basically allows to use libmagic [1] - the library behind the "file"
+command - on bytea values in the database.
+
+Although it is not really recommended to store files in a database it occasionally
+might be the case in practice. This extension might come in handy when the type
+of data inside the BLOB has to be identified.
+
+
+Functions
+---------
+
+byteamagic_mime(bytea)
+    returns the mimetype of the bytea data as text
+
+    This is essentially the same as
+    > file --mime-type <file>
+
+
+byteamagic_text(bytea)
+    returns a text describing the filetype of the bytea data
+
+    The output matches
+    > file <file>
+
+
+Links
+-----
+[1] "file" & libmagic
+    http://www.darwinsys.com/file/
+
+
+License
+-------
+
+Simplified BSD License -- see the COPYING file
+
+nico@nmandery.net 2011

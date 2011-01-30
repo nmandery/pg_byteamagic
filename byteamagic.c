@@ -2,6 +2,7 @@
  * PostgreSQL extension to determinate the filetypes of bytea BLOBs
  *
  * Copyright (c) Nico Mandery 2011.
+ * nico@nmandery.net
  */
 
 #include "postgres.h"
