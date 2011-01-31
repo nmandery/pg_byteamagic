@@ -33,12 +33,14 @@ magic_bytea_info(bytea * b, int magic_flags)
     struct magic_set *  magic_c;
     text *              ret_text;
     const char *        magic_result;
+    char *              p_magic_err;
+    const char *        magic_err;
 
 
     magic_c = magic_open(magic_flags);
     if (magic_c == NULL) {
         ereport(ERROR,
-            (errcode(ERRCODE_OUT_OF_MEMORY),
+            (errcode(ERRCODE_EXTERNAL_ROUTINE_EXCEPTION),
                 errmsg("could not open libmagic")));
     }
 
@@ -47,19 +49,24 @@ magic_bytea_info(bytea * b, int magic_flags)
         magic_close(magic_c);
 
          ereport(ERROR,
-            (errcode(ERRCODE_IO_ERROR),
-                errmsg("could not open the default libmagic database")));
+            (errcode(ERRCODE_EXTERNAL_ROUTINE_EXCEPTION),
+                errmsg("could not load the default libmagic database")));
     }
-
 
     magic_result = magic_buffer(magic_c, VARDATA_ANY(b),
             VARSIZE_ANY_EXHDR(b));
     if (magic_result == NULL) {
+
+        magic_err = magic_error(magic_c);
+
+        p_magic_err = palloc( (strlen(magic_err) + 1) * sizeof(char) );
+        strcpy(p_magic_err, magic_err);
+
         magic_close(magic_c);
 
         ereport(ERROR,
-            (errcode(ERRCODE_DATA_EXCEPTION),
-                errmsg(magic_error(magic_c))));
+            (errcode(ERRCODE_EXTERNAL_ROUTINE_EXCEPTION),
+                errmsg("libmagic error: %s", p_magic_err)));
     }
 
     ret_text = cstring_to_text(magic_result);
