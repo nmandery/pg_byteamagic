@@ -8,6 +8,25 @@ Although it is not really recommended to store files in a database it occasional
 might be the case in practice. This extension might come in handy when the type
 of data inside the BLOB has to be identified.
 
+Installation
+------------
+
+To build this module you need to have the Postgresql development headers installed
+as well as the development package for libmagic [1] (libmagic-dev on debian).
+
+The extension can be build by calling
+
+  make
+  make install
+
+"make install" probably needs elevated privileges on your system.
+
+The extension can be loaded in a database by running
+
+  CREATE EXTENSION byteamagic;
+
+on the psql command line.
+
 
 Functions
 ---------
