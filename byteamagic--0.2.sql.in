@@ -1,5 +1,6 @@
+-- complain if script is sourced in psql, rather than via CREATE EXTENSION
+\echo Use "CREATE EXTENSION byteamagic" to load this file. \quit
 
-SET search_path = public;
 
 CREATE FUNCTION byteamagic_mime(bytea) RETURNS text
 AS 'MODULE_PATHNAME', 'byteamagic_mime'

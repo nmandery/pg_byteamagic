@@ -1,0 +1,3 @@
+comment = 'extension to determinate the filetypes of bytea BLOBs'
+default_version = '0.2'
+relocatable = true

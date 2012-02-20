@@ -1,6 +1,7 @@
-MODULE_big = byteamagic
+EXTENSION = byteamagic
+MODULE_big = byteamagic--0.2
 OBJS = byteamagic.o
-DATA_built = byteamagic.sql
+DATA_built = byteamagic--0.2.sql
 DOCS = README.byteamagic
 
 # link to libmagic

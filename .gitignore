@@ -1,2 +1,3 @@
-byteamagic.so
-byteamagic.sql
+*.so
+*.o
+*.sql
