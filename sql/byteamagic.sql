@@ -1,9 +1,6 @@
--- complain if script is sourced in psql, rather than via CREATE EXTENSION
-\echo Use "CREATE EXTENSION byteamagic" to load this file. \quit
-
 
 CREATE FUNCTION byteamagic_mime(bytea) RETURNS text
-AS 'MODULE_PATHNAME', 'byteamagic_mime'
+AS 'byteamagic', 'byteamagic_mime'
 IMMUTABLE LANGUAGE C STRICT;
 
 comment on function byteamagic_mime(bytea) is
@@ -12,11 +9,8 @@ comment on function byteamagic_mime(bytea) is
 
 
 CREATE FUNCTION byteamagic_text(bytea) RETURNS text
-AS 'MODULE_PATHNAME', 'byteamagic_text'
+AS 'byteamagic', 'byteamagic_text'
 IMMUTABLE LANGUAGE C STRICT;
 
 comment on function byteamagic_text(bytea) is
     'return a text describing the filetype of the bytea data';
-
-
-

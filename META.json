@@ -1,0 +1,39 @@
+{
+   "name": "byteamagic",
+   "abstract": "extension to determinate the filetypes of bytea BLOBs",
+   "description": "extension to determinate the filetypes of bytea BLOBs",
+   "version": "0.2.1",
+   "maintainer": [
+      "Nico Mandery <nico@nmandery.net>"
+   ],
+   "license": "bsd",
+   "provides": {
+      "byteamagic": {
+         "abstract": "extension to determinate the filetypes of bytea BLOBs",
+         "file": "sql/byteamagic.sql",
+         "docfile": "doc/byteamagic.md",
+         "version": "0.2.1"
+      }
+   },
+   "resources": {
+      "bugtracker": {
+         "web": "http://github.com/nmandery/pg_byteamagic/issues/"
+      },
+      "repository": {
+        "url":  "git://github.com/nmandery/pg_byteamagic.git",
+        "web":  "http://github.com/nmandery/pg_byteamagic/",
+        "type": "git"
+      }
+   },
+   "generated_by": "Nico Mandery",
+   "meta-spec": {
+      "version": "1.0.0",
+      "url": "http://pgxn.org/meta/spec.txt"
+   },
+   "tags": [
+      "mimetype",
+      "byteamagic",
+      "bytea",
+      "file type determination"
+   ]
+}
