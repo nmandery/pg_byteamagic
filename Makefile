@@ -3,8 +3,9 @@ EXTVERSION 		= $(shell grep default_version $(EXTENSION).control | \
 	sed -e "s/default_version[[:space:]]*=[[:space:]]*'\([^']*\)'/\1/")
 
 
+#OBJS    		= $(patsubst %.c,%,$(wildcard src/*.c))
+OBJS            = $(patsubst %.c,%.o,$(wildcard src/*.c))
 MODULE_big 		= $(EXTENSION)
-MODULES 		= $(patsubst %.c,%,$(wildcard src/*.c))
 DATA			= $(filter-out $(wildcard sql/*--*.sql),$(wildcard sql/*.sql))
 # link to libmagic
 SHLIB_LINK		+= -lmagic
