@@ -6,7 +6,7 @@ EXTVERSION 		= $(shell grep default_version $(EXTENSION).control | \
 #OBJS    		= $(patsubst %.c,%,$(wildcard src/*.c))
 OBJS            = $(patsubst %.c,%.o,$(wildcard src/*.c))
 MODULE_big 		= $(EXTENSION)
-DATA			= $(filter-out $(wildcard sql/*--*.sql),$(wildcard sql/*.sql))
+DATA			= $(sort $(filter-out $(wildcard sql/*--*.sql),$(wildcard sql/*.sql)))
 # link to libmagic
 SHLIB_LINK		+= -lmagic
 DOCS			= $(wildcard doc/*.md)
@@ -20,7 +20,7 @@ all: sql/$(EXTENSION)--$(EXTVERSION).sql
 sql/$(EXTENSION)--$(EXTVERSION).sql: sql/$(EXTENSION).sql
 	cp $< $@
 
-DATA 			= $(wildcard sql/*--*.sql) sql/$(EXTENSION)--$(EXTVERSION).sql
+DATA 			= $(sort $(wildcard sql/*--*.sql) sql/$(EXTENSION)--$(EXTVERSION).sql)
 EXTRA_CLEAN 	= sql/$(EXTENSION)--$(EXTVERSION).sql
 endif
 
