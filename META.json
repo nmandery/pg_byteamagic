@@ -2,7 +2,7 @@
    "name": "byteamagic",
    "abstract": "extension to determinate the filetypes of bytea BLOBs",
    "description": "extension to determinate the filetypes of bytea BLOBs",
-   "version": "0.2.2",
+   "version": "0.2.3",
    "maintainer": [
       "Nico Mandery <nico@nmandery.net>"
    ],
@@ -12,7 +12,7 @@
          "abstract": "extension to determinate the filetypes of bytea BLOBs",
          "file": "sql/byteamagic.sql",
          "docfile": "doc/byteamagic.md",
-         "version": "0.2.2"
+         "version": "0.2.3"
       }
    },
    "resources": {
