@@ -10,6 +10,12 @@
 #include "utils/builtins.h"
 #include "magic.h"
 
+#if PG_MAJORVERSION_NUM >= 16
+// varatt.h was split away from postgres.h in PG 16.
+// https://github.com/postgres/postgres/commit/d952373a987bad331c0e499463159dd142ced1ef
+#include "varatt.h"
+#endif
+
 #ifdef PG_MODULE_MAGIC
 PG_MODULE_MAGIC;
 #endif
