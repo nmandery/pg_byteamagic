@@ -1,5 +1,9 @@
 Revision history for PostgreSQL extension explanation.
 
+
+0.2.4   2023-10-03
+      - Provide migration SQL scripts
+
 0.2.3   2023-09-26
       - Support for PG 16+ by including the varatt.h header
 
